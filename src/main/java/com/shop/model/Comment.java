@@ -1,4 +1,4 @@
-package com.shop.dao;
+package com.shop.model;
 
 public class Comment {
 
