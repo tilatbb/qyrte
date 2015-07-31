@@ -12,9 +12,9 @@
 
 
 	<context:annotation-config />
-	<context:component-scan base-package="com.magazin"/>
+	<context:component-scan base-package="com.shop"/>
 	
-	<jpa:repositories base-package="com.magazin.dao"/>
+	<jpa:repositories base-package="com.shop.dao"/>
 
 	<bean
 		class="org.springframework.orm.jpa.support.PersistenceAnnotationBeanPostProcessor" />
