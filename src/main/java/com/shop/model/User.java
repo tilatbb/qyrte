@@ -32,10 +32,10 @@ public class User {
 	@OneToOne
 	private Address userAddress;
 	
-	@OneToMany(mappedBy="user", cascade=CascadeType.ALL, fetch=FetchType.LAZY)
+	@OneToMany(mappedBy="user", cascade=CascadeType.ALL)
 	private List<Command> userCommands = new ArrayList<Command>();
 	
-	@OneToMany(mappedBy="user", cascade=CascadeType.ALL, fetch=FetchType.LAZY)
+	@OneToMany(mappedBy="user", cascade=CascadeType.ALL)
 	private List<Comment> userComments = new ArrayList<Comment>();
 
 	public String getEmail() {
