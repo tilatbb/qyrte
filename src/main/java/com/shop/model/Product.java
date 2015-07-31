@@ -6,6 +6,7 @@ public class Product {
 	private String name;
 	private float price;
 	private String description;
+	private Subcategory idSubcategory;
 
 	public String getDescription() {
 		return description;
@@ -13,6 +14,10 @@ public class Product {
 
 	public Long getId() {
 		return id;
+	}
+
+	public Subcategory getIdSubcategory() {
+		return idSubcategory;
 	}
 
 	public String getName() {
@@ -29,6 +34,10 @@ public class Product {
 
 	public void setId(Long id) {
 		this.id = id;
+	}
+
+	public void setIdSubcategory(Subcategory idSubcategory) {
+		this.idSubcategory = idSubcategory;
 	}
 
 	public void setName(String name) {
