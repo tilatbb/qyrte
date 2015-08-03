@@ -11,15 +11,15 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
-@Entity(name = "Subcategorys")
+@Entity(name="Subcategorys")
 public class Subcategory {
 
 	@Id
 	@GeneratedValue
-	@Column(name = "SUBCATEGORY_ID")
+	@Column(name="SUBCATEGORY_ID")
 	private Long id;
 
-	@Column(name = "SUBCATEGORY_NAME")
+	@Column(name="SUBCATEGORY_NAME")
 	private String name;
 
 	@ManyToOne

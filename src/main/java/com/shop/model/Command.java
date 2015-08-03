@@ -32,7 +32,7 @@ public class Command {
 	@OneToOne
 	private Address addressCommand;
 	
-	@OneToMany(mappedBy="product", cascade=CascadeType.ALL)
+	@OneToMany(mappedBy="command", cascade=CascadeType.ALL)
 	private List<Product> product = new ArrayList<Product>();
 
 	
