@@ -20,8 +20,9 @@ public class Comment {
 	private String comment;
 	
 	@ManyToOne
-	private User idUser;
+	private User user;
 
+	
 	@OneToOne
 	private Product idPdoduct;
 
@@ -38,11 +39,11 @@ public class Comment {
 	public void setComment(String comment) {
 		this.comment = comment;
 	}
-	public User getIdUser() {
-		return idUser;
+	public User getUser() {
+		return user;
 	}
-	public void setIdUser(User idUser) {
-		this.idUser = idUser;
+	public void setUser(User user) {
+		this.user = user;
 	}
 	public Product getIdPdoduct() {
 		return idPdoduct;
