@@ -13,7 +13,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
-import com.pluralsight.model.Exercise;
+
 
 @Entity
 @Table(name="Users")
