@@ -9,37 +9,37 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "Products")
+@Table(name="Products")
 public class Product {
 
 	@Id
 	@GeneratedValue
-	@Column(name = "PRODUCT_ID")
+	@Column(name="PRODUCT_ID")
 	private Long id;
 
-	@Column(name = "PRODUCT_NAME")
+	@Column(name="PRODUCT_NAME")
 	private String name;
 
-	@Column(name = "PRODUCT_PRICE")
+	@Column(name="PRODUCT_PRICE")
 	private float price;
 
-	@Column(name = "PRODUCT_DESCRIPTION")
+	@Column(name="PRODUCT_DESCRIPTION")
 	private String description;
 
-	@Column(name = "PRODUCT_IMAGE_URL")
+	@Column(name="PRODUCT_IMAGE_URL")
 	private String url;
 
 	@OneToOne
 	private Comment comment;
 
 	@ManyToOne
-	private Command commands;
+	private Command command;
 
 	@ManyToOne
-	private Subcategory subcategoris;
+	private Subcategory subcategory;
 
-	public Command getCommands() {
-		return commands;
+	public Command getCommand() {
+		return command;
 	}
 
 	public Comment getComment() {
@@ -62,16 +62,16 @@ public class Product {
 		return price;
 	}
 
-	public Subcategory getSubcategoris() {
-		return subcategoris;
+	public Subcategory getSubcategory() {
+		return subcategory;
 	}
 
 	public String getUrl() {
 		return url;
 	}
 
-	public void setCommands(Command commands) {
-		this.commands = commands;
+	public void setCommand(Command command) {
+		this.command = command;
 	}
 
 	public void setComment(Comment comment) {
@@ -94,12 +94,16 @@ public class Product {
 		this.price = price;
 	}
 
-	public void setSubcategoris(Subcategory subcategoris) {
-		this.subcategoris = subcategoris;
+	public void setSubcategory(Subcategory subcategory) {
+		this.subcategory = subcategory;
 	}
 
 	public void setUrl(String url) {
 		this.url = url;
 	}
+
+
+
+
 
 }
