@@ -11,7 +11,7 @@
 	<mvc:annotation-driven/>
 	
 	<mvc:resources location="assets" mapping="/assets/**"/>
-
+	<mvc:resources location="pdfs" mapping="/pdfs/**"/>
 	
 	<context:component-scan base-package="com.shop.controller"/>
 	
@@ -34,7 +34,7 @@
 		
 		<property name="defaultViews">
 			<list>
-				<bean class="org.springframework.web.servlet.view.json.MappingJacksonJsonView" />
+				<bean class="org.springframework.web.servlet.view.json.MappingJackson2JsonView" />
 				<bean class="org.springframework.web.servlet.view.xml.MarshallingView">
 					<constructor-arg>
 						<bean class="org.springframework.oxm.xstream.XStreamMarshaller">
