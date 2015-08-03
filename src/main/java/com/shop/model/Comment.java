@@ -1,13 +1,28 @@
 package com.shop.model;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="Comments")
 public class Comment {
 
+	@Id
+	@GeneratedValue
+	@Column(name="COMMENT_ID")
 	private Long id;
 	
 	private String comment;
 	
+	@ManyToOne
 	private User idUser;
 
+	@OneToOne
 	private Product idPdoduct;
 
 	//Start Getters and Setters
