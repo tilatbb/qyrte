@@ -33,7 +33,7 @@ public class Command {
 	private Address addressCommand;
 	
 	@OneToMany(mappedBy="command", cascade=CascadeType.ALL)
-	private List<Product> product = new ArrayList<Product>();
+	List<Product> products = new ArrayList<Product>();
 
 	
 	//Start Getters and Setters
@@ -60,12 +60,6 @@ public class Command {
 	}
 	public void setAddressCommand(Address addressCommand) {
 		this.addressCommand = addressCommand;
-	}
-	public List<Product> getProduct() {
-		return product;
-	}
-	public void setProduct(List<Product> product) {
-		this.product = product;
 	}
 	//End Getters and Setters
 	
