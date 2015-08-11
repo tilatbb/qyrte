@@ -10,7 +10,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
-import javax.validation.constraints.NotNull;
 
 @Entity(name="Subcategories")
 public class Subcategory {
@@ -25,20 +24,12 @@ public class Subcategory {
 	
 	@ManyToOne
 	private Category category;
-	
-	
-	@Column(name="CATEGORY_ID_FK")
-	private Long categoryId;
 
 	@OneToMany(mappedBy="subcategory", cascade=CascadeType.ALL)
 	List<Product> products = new ArrayList<Product>();
 
 	public Category getCategory() {
 		return category;
-	}
-
-	public Long getCategoryId() {
-		return categoryId;
 	}
 
 	public Long getId() {
@@ -50,10 +41,6 @@ public class Subcategory {
 	}
 	public void setCategory(Category category) {
 		this.category = category;
-	}
-
-	public void setCategoryId(Long categoryId) {
-		this.categoryId = categoryId;
 	}
 
 	public void setId(Long id) {

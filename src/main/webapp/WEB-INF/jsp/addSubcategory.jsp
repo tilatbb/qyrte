@@ -11,12 +11,13 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Adaugare subcategorii</title>
+
 <script type="text/javascript" src="jquery-2.1.4.js"></script>
 
 <script type="text/javascript">
 	$(document).ready(
 		function(){
-			$.getJSON('<spring:url value="categories.json"/>', {
+			$.getJSON('http://localhost:8080/lucru/categories', {
 				ajax: 'true'
 			}, function(data){
 				var html = '<option value="">--please select one--</option>';
@@ -34,54 +35,24 @@
 
 </script>
 
-
-<style>
-	
-	.error {
-		color: #ff0000;
-		
-	}
-	.errorblock {
-		color: #000;
-		background-color: #ffEEEE;
-		border: 3px solid #ff0000;
-		padding: 8px;
-		margin 16px;
-	}
-	
-</style>
-
-
-
-
 </head>
 <body>
- 
-	
+	<form action="http://localhost:8080/lucru/addSubcategory" method="post">
+		<table>
+			<tr>
+				<td>nume categorie</td>
+				<td><input name="nameSubcategory" value="" ></td>
+				<td>
+					<select name="categoryId" id="categoriess">
+						
+					</select>
+				</td>
+			</tr>
+			<tr>
+				<td colspan="3"><input type="submit" value="Adauga !"></td>
+			</tr>
+		</table>
 
-<form:form commandName="subcategory">
-	<form:errors path="*" cssClass="errorblock" element="div"/>
-	
-	<table>
-		<tr>
-			<td>nume subcategorie</td>
-			<td><form:input path="name" cssErrorClass="error"/></td>
-			<td><form:errors path="name" cssClass="error"/></td>
-			<td>
-				
-					<form:select id="categoriess" path="categoryId" />
-			    
-			</td>
-			
-			
-		</tr>
-		<tr>
-			<td colspan="3">
-				<input type="submit" value="Adauga !"/>
-			</td>
-		</tr>
-	</table>
-</form:form>
-	 
+	</form>
 </body>
 </html>

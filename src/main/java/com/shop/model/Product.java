@@ -32,9 +32,6 @@ public class Product {
 
 	@Column(name="PRODUCT_IMAGE_URL")
 	private String url;
-	
-	@Column(name="SUBCATEGORY_ID")
-	private Long subcategoryId;
 
 	@OneToMany(mappedBy="product", cascade=CascadeType.ALL)
 	List<Comment> comments = new ArrayList<Comment>();
@@ -69,10 +66,6 @@ public class Product {
 		return subcategory;
 	}
 
-	public Long getSubcategoryId() {
-		return subcategoryId;
-	}
-
 	public String getUrl() {
 		return url;
 	}
@@ -99,10 +92,6 @@ public class Product {
 
 	public void setSubcategory(Subcategory subcategory) {
 		this.subcategory = subcategory;
-	}
-
-	public void setSubcategoryId(Long subcategoryId) {
-		this.subcategoryId = subcategoryId;
 	}
 
 	public void setUrl(String url) {
