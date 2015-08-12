@@ -42,6 +42,15 @@ public class ProductController {
 		return product;
 	}
 
+	@RequestMapping(value = "/getProduct")
+	public @ResponseBody Product getProduct(@RequestParam("idProduct") Long idProduct) {
+
+		Product product = new Product();
+		product = productService.get(idProduct);
+		System.out.println("id-ul produsului este: "+ product.getId());
+		return product;
+	}
+	
 	@RequestMapping(value = "/products", method = RequestMethod.GET)
 	public @ResponseBody List<Product> findAllProducts() {
 		return productService.findAllProducts();
