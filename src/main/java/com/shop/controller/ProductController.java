@@ -3,11 +3,10 @@ package com.shop.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
 import com.shop.model.Product;
@@ -15,7 +14,7 @@ import com.shop.model.Subcategory;
 import com.shop.service.ProductService;
 import com.shop.service.SubcategoryService;
 
-@Controller
+@RestController
 @SessionAttributes(types = Product.class)
 public class ProductController {
 
@@ -26,7 +25,7 @@ public class ProductController {
 	private SubcategoryService subcategoryService;
 
 	@RequestMapping(value = "/addProduct")
-	public @ResponseBody Product addProduct(@RequestParam("name") String name, @RequestParam("price") float price,
+	public Product addProduct(@RequestParam("name") String name, @RequestParam("price") float price,
 			@RequestParam("description") String description, @RequestParam("url") String url,
 			@RequestParam("subcategoryId") Long subcategoryId) {
 
@@ -43,7 +42,10 @@ public class ProductController {
 	}
 
 	@RequestMapping(value = "/products", method = RequestMethod.GET)
-	public @ResponseBody List<Product> findAllProducts() {
+	public List<Product> findAllProducts() {
 		return productService.findAllProducts();
 	}
+	
+
+	
 }
