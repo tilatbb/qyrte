@@ -3,12 +3,11 @@ package com.shop.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
 import com.shop.model.Category;
@@ -16,7 +15,7 @@ import com.shop.model.Subcategory;
 import com.shop.service.CategoryService;
 import com.shop.service.SubcategoryService;
 
-@Controller
+@RestController
 @SessionAttributes(types = Subcategory.class)
 public class SubcategoryController {
 
@@ -27,7 +26,7 @@ public class SubcategoryController {
 	private CategoryService categoryService;
 
 	@RequestMapping(value = "/addSubcategory")
-	public @ResponseBody Subcategory addSubcategory(@RequestParam("nameSubcategory") String nameSubcategory, @RequestParam("categoryId") Long categoryId) {	
+	public Subcategory addSubcategory(@RequestParam("nameSubcategory") String nameSubcategory, @RequestParam("categoryId") Long categoryId) {	
 		Category category = new Category();
 		Subcategory subcategory = new Subcategory();
 		category = categoryService.get(categoryId);
@@ -38,7 +37,7 @@ public class SubcategoryController {
 	}
 	
 	@RequestMapping(value = "/subcategories", method = RequestMethod.GET)
-	public @ResponseBody List<Subcategory> findAllSubcategories(Model model) {
+	public List<Subcategory> findAllSubcategories(Model model) {
 		return subcategoryService.findAllSubcategories();
 	}
 	
