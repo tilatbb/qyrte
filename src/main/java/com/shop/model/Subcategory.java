@@ -11,7 +11,7 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
-@Entity(name="Subcategorys")
+@Entity(name="Subcategories")
 public class Subcategory {
 
 	@Id
@@ -21,20 +21,12 @@ public class Subcategory {
 
 	@Column(name="SUBCATEGORY_NAME")
 	private String name;
-
+	
 	@ManyToOne
 	private Category category;
 
 	@OneToMany(mappedBy="subcategory", cascade=CascadeType.ALL)
 	List<Product> products = new ArrayList<Product>();
-
-	public List<Product> getProducts() {
-		return products;
-	}
-
-	public void setProducts(List<Product> products) {
-		this.products = products;
-	}
 
 	public Category getCategory() {
 		return category;
@@ -47,7 +39,6 @@ public class Subcategory {
 	public String getName() {
 		return name;
 	}
-
 	public void setCategory(Category category) {
 		this.category = category;
 	}
@@ -59,5 +50,4 @@ public class Subcategory {
 	public void setName(String name) {
 		this.name = name;
 	}
-
 }
