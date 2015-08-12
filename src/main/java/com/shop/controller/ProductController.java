@@ -24,7 +24,7 @@ public class ProductController {
 
 	@Autowired
 	private ProductService productService;
-	
+
 	@PersistenceContext
 	private EntityManager em;
 
@@ -32,7 +32,7 @@ public class ProductController {
 	private SubcategoryService subcategoryService;
 
 	List<Product> ex1 = new ArrayList<Product>();
-	
+
 	@RequestMapping(value = "/addProduct")
 	public Product addProduct(@RequestParam("name") String name, @RequestParam("price") float price,
 			@RequestParam("description") String description, @RequestParam("url") String url,
@@ -52,59 +52,50 @@ public class ProductController {
 
 	@RequestMapping(value = "/productList")
 	public Product productList(@RequestParam("idProduct") Long idProduct, @RequestParam("action") String action) {
-		if(action.equals("add")){
-			
+		if (action.equals("add")) {
+
 			Product product = new Product();
 			product = productService.get(idProduct);
-			System.out.println("id-ul produsului este: "+ product.getId());
-			System.out.println("numele produsului este "+ product.getName());
-			System.out.println("pretul produsului este: "+ product.getPrice());
-			
+			System.out.println("id-ul produsului este: " + product.getId());
+			System.out.println("numele produsului este " + product.getName());
+			System.out.println("pretul produsului este: " + product.getPrice());
+
 			productService.addProductInList(product);
-			
-			
-			ex1=productService.showProductList();
-			for(int i=0; i<ex1.size();i++){
-				
-				System.out.println("id-ul produsului este-- "+ex1.get(i).getId());
-				System.out.println("numele produsului este-- "+ex1.get(i).getName());
-				System.out.println("pretul produsului este:-- "+ex1.get(i).getPrice());
+
+			ex1 = productService.showProductList();
+			for (int i = 0; i < ex1.size(); i++) {
+
+				System.out.println("id-ul produsului este-- " + ex1.get(i).getId());
+				System.out.println("numele produsului este-- " + ex1.get(i).getName());
+				System.out.println("pretul produsului este:-- " + ex1.get(i).getPrice());
 			}
 			return product;
-			
-		}
-		else if(action.equals("delete")){
-			
+
+		} else if (action.equals("delete")) {
+
 			System.out.println("s-a sters");
 			productService.deleteProduct(idProduct);
-			
+
 		}
-		
+
 		return null;
 	}
-	
-	
-	
+
 	@RequestMapping(value = "/products", method = RequestMethod.GET)
 	public List<Product> findAllProducts() {
 		return productService.findAllProducts();
 	}
-	
-<<<<<<< HEAD
+
 	@RequestMapping(value = "/productList", method = RequestMethod.GET)
 	public List<Product> showProductList() {
 		return productService.showProductList();
 	}
-	
-=======
-	@RequestMapping(value="/someproducts", method = RequestMethod.GET)
-	public List<Product> findSomeProducts(){
-		
-		return productService.findSomeProducts(new Long(2));
-		
-	}
-	
 
->>>>>>> 0dd667c3c32f80835d579f47bd7eb41bdcde21e8
-	
+	@RequestMapping(value = "/someproducts", method = RequestMethod.GET)
+	public List<Product> findSomeProducts() {
+
+		return productService.findSomeProducts(new Long(2));
+
+	}
+
 }
