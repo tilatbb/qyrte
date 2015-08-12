@@ -3,6 +3,9 @@ package com.shop.controller;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -21,6 +24,9 @@ public class ProductController {
 
 	@Autowired
 	private ProductService productService;
+	
+	@PersistenceContext
+	private EntityManager em;
 
 	@Autowired
 	private SubcategoryService subcategoryService;
@@ -84,10 +90,21 @@ public class ProductController {
 		return productService.findAllProducts();
 	}
 	
+<<<<<<< HEAD
 	@RequestMapping(value = "/productList", method = RequestMethod.GET)
 	public List<Product> showProductList() {
 		return productService.showProductList();
 	}
 	
+=======
+	@RequestMapping(value="/someproducts", method = RequestMethod.GET)
+	public List<Product> findSomeProducts(){
+		
+		return productService.findSomeProducts(new Long(2));
+		
+	}
+	
+
+>>>>>>> 0dd667c3c32f80835d579f47bd7eb41bdcde21e8
 	
 }

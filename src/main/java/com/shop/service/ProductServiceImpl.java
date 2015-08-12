@@ -31,6 +31,7 @@ public class ProductServiceImpl implements ProductService {
 		return product;
 	}
 	
+<<<<<<< HEAD
 	List<Product> productList = new ArrayList<Product>();
 	
 	public void addProductInList (Product product){
@@ -59,5 +60,12 @@ public class ProductServiceImpl implements ProductService {
 	
 	
 	
+=======
+	public List<Product> findSomeProducts(Long subcategoryId){
+		
+		return productRepository.findSomeProducts(subcategoryId);
+	}
+	
+>>>>>>> 0dd667c3c32f80835d579f47bd7eb41bdcde21e8
 
 }
