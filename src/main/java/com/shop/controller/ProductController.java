@@ -42,7 +42,7 @@ public class ProductController {
 	}
 
 	@RequestMapping(value = "/getProduct")
-	public @ResponseBody Product getProduct(@RequestParam("idProduct") Long idProduct) {
+	public Product getProduct(@RequestParam("idProduct") Long idProduct) {
 
 		Product product = new Product();
 		product = productService.get(idProduct);
