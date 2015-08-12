@@ -12,4 +12,11 @@ public interface ProductService {
 	
 	Product get(Long id);
 	
+	void addProductInList (Product product);
+	
+	List<Product> showProductList();
+	
+	void clearProductList();
+	
+	void deleteProduct(Long idProduct);
 }

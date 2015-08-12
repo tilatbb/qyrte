@@ -1,5 +1,6 @@
 package com.shop.service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,5 +30,34 @@ public class ProductServiceImpl implements ProductService {
 		
 		return product;
 	}
+	
+	List<Product> productList = new ArrayList<Product>();
+	
+	public void addProductInList (Product product){
+		
+		productList.add(product);
+	}
+	
+	public List<Product> showProductList(){
+		
+		return productList;
+	}
+	
+	public void clearProductList(){
+		
+	productList.clear();
+	}
+	
+	public void deleteProduct(Long idProduct){
+		
+		int id= idProduct.intValue();
+		productList.remove(id);
+	}
+	
+	
+	
+	
+	
+	
 
 }
