@@ -2,11 +2,14 @@ package com.shop.service;
 
 import java.util.List;
 
+import javax.persistence.Query;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.shop.dao.ProductDAO;
 import com.shop.model.Product;
+import com.shop.model.ProductReport;
 
 @Service("productService")
 public class ProductServiceImpl implements ProductService {
@@ -29,5 +32,8 @@ public class ProductServiceImpl implements ProductService {
 		
 		return product;
 	}
-
+	
+	public List<ProductReport> findSomeProducts(){
+		return productRepository.findSomeProducts();
+	}
 }
