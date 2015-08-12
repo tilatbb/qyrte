@@ -31,7 +31,6 @@ public class ProductController {
 	@Autowired
 	private SubcategoryService subcategoryService;
 
-	List<Product> ex1 = new ArrayList<Product>();
 
 	@RequestMapping(value = "/addProduct")
 	public Product addProduct(@RequestParam("name") String name, @RequestParam("price") float price,
@@ -56,24 +55,11 @@ public class ProductController {
 
 			Product product = new Product();
 			product = productService.get(idProduct);
-			System.out.println("id-ul produsului este: " + product.getId());
-			System.out.println("numele produsului este " + product.getName());
-			System.out.println("pretul produsului este: " + product.getPrice());
-
 			productService.addProductInList(product);
 
-			ex1 = productService.showProductList();
-			for (int i = 0; i < ex1.size(); i++) {
-
-				System.out.println("id-ul produsului este-- " + ex1.get(i).getId());
-				System.out.println("numele produsului este-- " + ex1.get(i).getName());
-				System.out.println("pretul produsului este:-- " + ex1.get(i).getPrice());
-			}
 			return product;
 
 		} else if (action.equals("delete")) {
-
-			System.out.println("s-a sters");
 			productService.deleteProduct(idProduct);
 
 		}
