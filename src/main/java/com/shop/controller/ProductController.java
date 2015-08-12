@@ -4,7 +4,6 @@ import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
-import javax.persistence.Query;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -14,7 +13,6 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
 import com.shop.model.Product;
-import com.shop.model.ProductReport;
 import com.shop.model.Subcategory;
 import com.shop.service.ProductService;
 import com.shop.service.SubcategoryService;
@@ -64,22 +62,12 @@ public class ProductController {
 	}
 	
 	@RequestMapping(value="/someproducts", method = RequestMethod.GET)
-	public List<ProductReport> findSomeProducts(){
+	public List<Product> findSomeProducts(){
 		
-		return productService.findSomeProducts();
+		return productService.findSomeProducts(new Long(2));
 		
 	}
 	
-	
-	@SuppressWarnings("unchecked")
-	@RequestMapping(value="/appleproducts", method = RequestMethod.GET)
-	public List<Product> findAppleProducts(){
-		String hql = "Select PRODUCT_NAME,PRODUCT_PRICE from Products g where g.subcategory_SUBCATEGORY_ID = 2";
-		Query query = em.createNativeQuery(hql);
-		return (List<Product>)query.getResultList();
-		
-		
-		
-	}
+
 	
 }
